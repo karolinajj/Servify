@@ -27,12 +27,43 @@
             .catch(error => console.log('error', error));
         }
     </script>
+    <style>
+    .header1 {
+      background-color: #426FFF;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+        height: 50px;
+    }
+    .main {
+      background-color: #426FFF;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+    .links {
+      background-color: #426FFF;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+    .contact {
+      background-color: #426FFF;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+    </style>
 </head>
 <body>
-    <div style="height: 50px; background-color: #426FFF">
+    <div class="header1">
         <a href="">O nas</a>
     </div>
-    <div>
+    <div class="main">
         Servify
         <form>
             <label>Wklej link do przepisu :</label>
@@ -41,10 +72,10 @@
             <button type="button" onclick="callAPI(document.getElementById('fLink').value)">Call API</button>
         </form>
     </div>
-    <div>
+    <div class="links">
         Współpracujemy z:
     </div>
-    <div>
+    <div class="contact">
         Skontaktuj się z nami:
     </div>
 </body>
