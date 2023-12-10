@@ -60,9 +60,12 @@
 
         input {
             padding: 10px;
-            width: 300px;
+            width: 350px;
+            height: 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 7px;
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
         }
 
         button {
@@ -144,7 +147,7 @@
         <p>Idealna porcja dla Ciebie</p>
         <h2>
             <form>
-                <input type="text" id="fLink" placeholder="Link do przepisu...">
+                <input type="text" id="fLink" placeholder="Wklej link do przepisu...">
                 <button type="button" onclick="callAPI(document.getElementById('fLink').value)"></button>
             </form>
             <img class="icon" src="icon_qestion.png" alt="Ania Gotuje"></a>
