@@ -1,82 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servify</title>
     <!-- Add some CSS to change client UI -->
-    <script>
-        // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (link)=>{
-            // instantiate a headers object
-            var myHeaders = new Headers();
-            // add content type header to object
-            myHeaders.append("Content-Type", "application/json");
-            // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"link":link});
-            // create a JSON object with parameters for API call and store in a variable
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-            // make API call with parameters and use promises to get response
-            fetch("https://gbxtitia04.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
-            .then(response => response.text())
-            .then(result => alert(JSON.parse(result).body))
-            .catch(error => console.log('error', error));
-        }
-    </script>
     <style>
-    a {
-      color: white;
-    }
-    .header1 {
-      background-color: #426FFF;
-      color: white;
-        height: 50px;
-    }
-    .main {
-      background-color: #426FFF;
-      color: white;
-        height: 800px;
-    }
-    .links {
-      background-color: #426FFF;
-      color: white;
-        height: 800px;
-    }
-    .contact {
-      background-color: #426FFF;
-      color: white;
-        height: 80px;
-    }
-    .text_main {
-        text-align: center;
-        font-family: Open Sans;
-        padding: 100px;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #d1bebe;
+            color: rgb(221, 218, 210);
+        }
 
+        header {
+            background-color: #f6f1f1; /* Updated color for "O nas" section */
+            padding: 20px;
+            text-align: right;
+            font-size: 20px;
+            color: #ff0000 !important;
+        }
+
+        .main {
+            background-color: #7142ff; /* Updated color for "Servify" section */
+            color: #f6f1f1;
+            padding: 40px;
+            text-align: center;
+            height: 90vh; /* Take up full height of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main h1 {
+            font-size: 90px; /* Increased font size */
+            margin-bottom: 0px;
+            margin-top: -120px;
+        }
+
+        .main p {
+            font-size: 40px; /* Increased font size */
+            font-style: italic;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 0px;
+            background-color: #7142ff;
+            color: #f6f1f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .button-text {
+            font-size: 15px; /* Adjust the font size as needed */
+            font-weight: bold;
+            background-color: #f6f1f1;
+            color: #303236; 
+            border-radius: 5px;
+            padding: 10px 10px;
+            
+        }
+
+        .links {
+            background-color: #f6f1f1;
+            height: 90vh; /* Take up full height of the viewport */
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .links h1{
+            color: #303236;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 60px;
+            font-style: italic;
+
+        }
+        .photos{
+            display: flex;
+            justify-content: center;
+            margin-top: 120px;
+        }
+
+        .partnership-image {
+            max-width: 200px;
+            height: auto;
+            padding: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            justify-content: center;
+
+        }
+
+        .contact {
+            background-color: #7142ff;
+            color: #f1eaea;
+            text-align: center;
+            padding: 10px;
+            height: 10vh; /* Take vp full height of the viewport */
+        }
+
+        .contact h1{
+            color: #f1eaea;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .contact h2{
+            color: #f1eaea;
+            font-size: 15px;
+            margin-top: 14px;
+            font-style: italic;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body>
-    <div class="header1">
-        <a href="">O nas</a>
-    </div>
+    <header>
+        <a href="#"
+        style="text-decoration: none; color: #402593; font-weight: bold; font-style: italic;">O nas</a>
+    </header>
     <div class="main">
-        <p class="text_main" style="font-size: 60px;">Servify</p>
-        <p class="text_main" style="font-size: 38px;">Idealna porcja dla Ciebie</p>
+        <h1>Servify</h1>
+        <p>Idealna porcja dla Ciebie</p>
         <form>
             <input type="text" id="fLink" placeholder="Link do przepisu...">
-            <!-- set button onClick method to call function we defined passing input values as parameters -->
-            <button type="button" onclick="callAPI(document.getElementById('fLink').value)">Call API</button>
+            <button type="button" onclick="callAPI(document.getElementById('fLink').value)"></button>
         </form>
     </div>
     <div class="links">
-        Współpracujemy z:
+        <h1>Współpracujemy z:</h1>
+        <div class="photos">
+            <img class="partnership-image" src="ania_gotuje.jpeg" alt="Ania Gotuje">
+            <img class="partnership-image" src="kwestia_smaku.png" alt="Kwestia Smaku">
+            <img class="partnership-image" src="rozkoszny.jpeg" alt="Rozkoszny.pl">
+            <img class="partnership-image" src="ania_starmach.jpeg" alt="Ania Starmach">
+        </div>
+
     </div>
     <div class="contact">
-        Skontaktuj się z nami:
+        <h1> Skontaktuj się z nami: </h1>
+        <h2> contact@servify.pl </h2>
     </div>
 </body>
 </html>
