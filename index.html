@@ -4,43 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servify</title>
-    <!-- Add some CSS to change client UI -->
+
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Open Sans', sans-serif;
-            background-color: #d1bebe;
+            background-color: #f6f1f1;
             color: rgb(221, 218, 210);
         }
 
         header {
-            background-color: #f6f1f1; /* Updated color for "O nas" section */
+            background-color: #f6f1f1;
             padding: 20px;
             text-align: right;
             font-size: 20px;
-            color: #ff0000 !important;
         }
 
         .main {
-            background-color: #7142ff; /* Updated color for "Servify" section */
+            background-color: #7142ff;
             color: #f6f1f1;
             padding: 40px;
             text-align: center;
-            height: 90vh; /* Take up full height of the viewport */
+            height: 90vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .main h1 {
-            font-size: 90px; /* Increased font size */
+            font-size: 90px; 
             margin-bottom: 0px;
             margin-top: -120px;
         }
 
+        .main h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .main p {
-            font-size: 40px; /* Increased font size */
+            font-size: 40px;
             font-style: italic;
             margin-top: 10px;
             margin-bottom: 30px;
@@ -70,19 +75,14 @@
             margin-left: 20px;
         }
 
-        .button-text {
-            font-size: 15px; /* Adjust the font size as needed */
-            font-weight: bold;
-            background-color: #f6f1f1;
-            color: #303236; 
-            border-radius: 5px;
-            padding: 10px 10px;
-            
+        .icon {
+            max-width: 45px;
+            margin-top: -38px;
         }
 
         .links {
             background-color: #f6f1f1;
-            height: 90vh; /* Take up full height of the viewport */
+            height: 90vh;
             padding: 20px;
             justify-content: center;
         }
@@ -116,7 +116,7 @@
             color: #f1eaea;
             text-align: center;
             padding: 10px;
-            height: 10vh; /* Take vp full height of the viewport */
+            height: 10vh;
         }
 
         .contact h1{
@@ -137,23 +137,26 @@
 <body>
     <header>
         <a href="#"
-        style="text-decoration: none; color: #402593; font-weight: bold; font-style: italic;">O nas</a>
+        style="text-decoration: none; color: #303236; font-weight: bold; font-style: italic;">O nas</a>
     </header>
     <div class="main">
         <h1>Servify</h1>
         <p>Idealna porcja dla Ciebie</p>
-        <form>
-            <input type="text" id="fLink" placeholder="Link do przepisu...">
-            <button type="button" onclick="callAPI(document.getElementById('fLink').value)"></button>
-        </form>
+        <h2>
+            <form>
+                <input type="text" id="fLink" placeholder="Link do przepisu...">
+                <button type="button" onclick="callAPI(document.getElementById('fLink').value)"></button>
+            </form>
+            <img class="icon" src="icon_qestion.png" alt="Ania Gotuje"></a>
+        </h2>
     </div>
     <div class="links">
         <h1>Współpracujemy z:</h1>
         <div class="photos">
-            <img class="partnership-image" src="ania_gotuje.jpeg" alt="Ania Gotuje">
-            <img class="partnership-image" src="kwestia_smaku.png" alt="Kwestia Smaku">
-            <img class="partnership-image" src="rozkoszny.jpeg" alt="Rozkoszny.pl">
-            <img class="partnership-image" src="ania_starmach.jpeg" alt="Ania Starmach">
+            <a href="https://aniagotuje.pl" target="_blank"><img class="partnership-image" src="ania_gotuje.jpeg" alt="Ania Gotuje"></a>
+            <a href="https://www.kwestiasmaku.com" target="_blank"><img class="partnership-image" src="kwestia_smaku.png" alt="Kwestia Smaku"></a>
+            <a href="https://www.rozkoszny.pl" target="_blank"><img class="partnership-image" src="rozkoszny.jpeg" alt="Rozkoszny.pl"></a>
+            <a href="https://aniastarmach.pl" target="_blank"><img class="partnership-image" src="ania_starmach.jpeg" alt="Ania Starmach"></a>
         </div>
 
     </div>
