@@ -26,14 +26,14 @@
             color: #f6f1f1;
             padding: 40px;
             text-align: center;
-            height: 90vh; 
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .main h1 {
-            font-size: 90px; 
+            font-size: 90px;
             margin-bottom: 0px;
             margin-top: -120px;
         }
@@ -136,36 +136,67 @@
             font-weight: normal;
         }
     </style>
+
 </head>
 <body>
-    <header>
-        <a href="#"
-        style="text-decoration: none; color: #303236; font-weight: bold; font-style: italic;">O nas</a>
-    </header>
-    <div class="main">
-        <h1>Servify</h1>
-        <p>Idealna porcja dla Ciebie</p>
-        <h2>
-            <form>
-                <input type="text" id="fLink" placeholder="Wklej link do przepisu...">
-                <button type="button" onclick="callAPI(document.getElementById('fLink').value)"></button>
-            </form>
-            <img class="icon" src="icon_qestion.png" alt="Ania Gotuje"></a>
-        </h2>
-    </div>
-    <div class="links">
-        <h1>Współpracujemy z:</h1>
-        <div class="photos">
-            <a href="https://aniagotuje.pl" target="_blank"><img class="partnership-image" src="ania_gotuje.jpeg" alt="Ania Gotuje"></a>
-            <a href="https://www.kwestiasmaku.com" target="_blank"><img class="partnership-image" src="kwestia_smaku.png" alt="Kwestia Smaku"></a>
-            <a href="https://www.rozkoszny.pl" target="_blank"><img class="partnership-image" src="rozkoszny.jpeg" alt="Rozkoszny.pl"></a>
-            <a href="https://aniastarmach.pl" target="_blank"><img class="partnership-image" src="ania_starmach.jpeg" alt="Ania Starmach"></a>
-        </div>
+<header>
+    <a href="#"
+       style="text-decoration: none; color: #303236; font-weight: bold; font-style: italic;">O nas</a>
+</header>
+<div class="main">
+    <h1>Servify</h1>
+    <p>Idealna porcja dla Ciebie</p>
+    <h2>
+        <input type="text" id="fLink" placeholder="Wklej link do przepisu...">
+    </h2>
+    <p id="result"></p>
+</div>
 
+<div class="links">
+    <h1>Współpracujemy z:</h1>
+    <div class="photos">
+        <a href="https://aniagotuje.pl" target="_blank"><img class="partnership-image" src="ania_gotuje.jpeg" alt="Ania Gotuje"></a>
+        <a href="https://www.kwestiasmaku.com" target="_blank"><img class="partnership-image" src="kwestia_smaku.png" alt="Kwestia Smaku"></a>
+        <a href="https://www.rozkoszny.pl" target="_blank"><img class="partnership-image" src="rozkoszny.jpeg" alt="Rozkoszny.pl"></a>
+        <a href="https://aniastarmach.pl" target="_blank"><img class="partnership-image" src="ania_starmach.jpeg" alt="Ania Starmach"></a>
     </div>
-    <div class="contact">
-        <h1> Skontaktuj się z nami: </h1>
-        <h2> contact@servify.pl </h2>
-    </div>
+
+</div>
+<div class="contact">
+    <h1> Skontaktuj się z nami: </h1>
+    <h2> contact@servify.pl </h2>
+</div>
+
+<script>
+    const fLink = document.getElementById("fLink")
+    const result = document.getElementById("result");
+    fLink.addEventListener("input", validateLink);
+    fLink.addEventListener("change", getLinkContent);
+
+    //TODO add validation for links we are supporting
+    function validateLink(e) {
+        var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+            '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+        if(!!urlPattern.test(fLink.value)){
+            fLink.style.color = 'green';
+        } else {
+            fLink.style.color = 'red';
+        }
+    }
+    //TODO parse rsult to get real content
+    async function getLinkContent(e) {
+        if(fLink.style.color == 'green') {
+            var src = await fetch(fLink.value)
+            result.textContent = await src.text();
+        } else {
+            alert('Incorrect url')
+        }
+    }
+</script>
+
 </body>
 </html>
