@@ -149,10 +149,12 @@
     <h2>
         <input type="text" id="fLink" placeholder="Wklej link do przepisu...">
     </h2>
+  
     <div id="wrapper" style="width: 800px; height:400px; margin-left: auto; margin-right: auto;">
         <div id="result_1" style="width: 400px; float:left;"></div>
         <div id="result_2" style="width: 400px; float:left;"></div>
     </div>
+
 </div>
 
 <div class="links">
@@ -174,6 +176,7 @@
     const fLink = document.getElementById("fLink")
     const result_1 = document.getElementById("result_1");
     const result_2= document.getElementById("result_2");
+
     fLink.addEventListener("input", validateLink);
     fLink.addEventListener("change", getLinkContent);
 
@@ -198,6 +201,7 @@
             result_2.textContent = "loading...";
             var src = await fetch("przyklad.html");//await fetch(fLink.value)
             result_1.textContent = await src.text();
+
         } else {
             alert('Incorrect url')
         }
