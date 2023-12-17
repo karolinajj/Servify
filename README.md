@@ -1,8 +1,10 @@
 # Servify
 Jak uruchamiać?
+```
 cd <your-project-name>
 npm install
 npm run dev
+```
 
 Pomysły:
 1. strona główna:
