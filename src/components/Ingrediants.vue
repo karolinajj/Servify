@@ -8,9 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="box">
+  <div class="ingrediants-box">
     <h1>Składniki</h1>
-    <div class="text-box">{{ingrediants}}</div>
+    <div class="ingrediants-text-box">{{ingrediants}}</div>
   </div>
 </template>
 
@@ -19,17 +19,19 @@ h1 {
   font-size: 7vh;
 }
 
-.text-box{
+.ingrediants-text-box{
   text-align: left;
 }
 
-.box {
+.ingrediants-box {
   background-color: white;
   font-family: 'Open Sans', sans-serif;
   color: black;
   border-radius: 7px;
-  height: 50vh;
+  height: auto;
   width: 50vh;
+  justify-content: center;
   align-self: center;
+  align-items: center;
 }
 </style>

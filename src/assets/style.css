@@ -1,5 +1,4 @@
 body {
-    margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
     background-color: #f6f1f1;
@@ -8,7 +7,6 @@ body {
 
 header {
     background-color: #f6f1f1;
-    padding: 20px;
     text-align: right;
     font-size: 20px;
 }
@@ -16,12 +14,8 @@ header {
 .main {
     background-color: #7142ff;
     color: #f6f1f1;
-    padding: 40px;
     text-align: center;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    height: auto;
 }
 
 .main h1 {
@@ -38,15 +32,12 @@ header {
 .main p {
     font-size: 40px;
     font-style: italic;
-    margin-top: 10px;
-    margin-bottom: 30px;
 }
 
 form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
 }
 
 input {
@@ -65,12 +56,6 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 20px;
-}
-
-.icon {
-    max-width: 45px;
-    margin-top: -38px;
 }
 
 .links {
@@ -84,14 +69,12 @@ button {
     color: #303236;
     font-size: 40px;
     text-align: center;
-    margin-top: 60px;
     font-style: italic;
 
 }
 .photos{
     display: flex;
     justify-content: center;
-    margin-top: 120px;
 }
 
 .partnership-image {
@@ -99,7 +82,6 @@ button {
     height: auto;
     padding: 30px;
     border-radius: 50%;
-    overflow: hidden;
     justify-content: center;
 
 }
@@ -115,13 +97,11 @@ button {
 .contact h1{
     color: #f1eaea;
     font-size: 18px;
-    margin-top: 10px;
 }
 
 .contact h2{
     color: #f1eaea;
     font-size: 15px;
-    margin-top: 14px;
     font-style: italic;
     font-weight: normal;
 }
