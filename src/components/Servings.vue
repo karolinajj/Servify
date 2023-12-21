@@ -36,6 +36,7 @@ h1 {
     display: flex;
     align-items: center;
   justify-content: center;
+  gap: 3vh;
 }
 
 .servings-buttons button{

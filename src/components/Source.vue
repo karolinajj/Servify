@@ -11,11 +11,13 @@ defineProps({
   <div class="source">
     <h1>Wybierz stronę</h1>
     <div class="source-photos">
-        <img class="source-partnership-image" src="/src/assets/ania_gotuje.jpeg" alt="Ania Gotuje">
-        <img class="source-partnership-image" src="/src/assets/kwestia_smaku.png" alt="Kwestia Smaku">
-        <img class="source-partnership-image" src="/src/assets/rozkoszny.jpeg" alt="Rozkoszny.pl">
-        <img class="source-partnership-image" src="/src/assets/ania_starmach.jpeg" alt="Ania Starmach">
-        
+      <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/ania_gotuje.jpeg')"></button>
+
+      <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/kwestia_smaku.png')"></button>
+
+      <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/rozkoszny.jpeg')"></button>
+
+      <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/ania_starmach.jpeg')"></button>
     </div>
   </div>
 </template>
@@ -24,18 +26,32 @@ defineProps({
 h1 {
   font-size: 7vh;
 }
-.source{
-    height: auto;
-}
-.source-photos{
-    display: flex;
-    justify-content: center;
+
+.source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
 }
 
-.source-partnership-image {
-    max-width: 12%;
-    height: auto;
-    padding: 1%;
-    border-radius: 50%;
+.source-photos {
+  display: flex;
+  justify-content: center;
+  gap: 2vh;
+}
+
+.source-partnership-button {
+  border: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+}
+
+/* Optionally, you can add hover effects or other styles */
+.source-partnership-button:hover {
+  /* Add your hover styles */
 }
 </style>
