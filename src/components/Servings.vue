@@ -14,6 +14,8 @@ defineProps({
         <button type="button">1</button>
         <button type="button">2</button>
         <button type="button">4</button>
+        <input type="text" id="fLink" placeholder="Wpisz liczbę porcji" />
+
     </div>
   </div>
 </template>
@@ -48,4 +50,17 @@ h1 {
     width: 20vh;
     background-color: white;
 }
+
+.servings-buttons input{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2vh;
+  color:black;
+  border-radius: 50%;
+  height: 20vh;
+  width: 20vh;
+  background-color: white;
+  text-align: center;
+}
+
+
 </style>
