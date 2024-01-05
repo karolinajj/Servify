@@ -18,6 +18,8 @@ defineProps({
       <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/rozkoszny.jpeg')"></button>
 
       <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/ania_starmach.jpeg')"></button>
+
+      <button type="button" class="source-partnership-button" style="background-image: url('/src/assets/chat.webp')"></button>
     </div>
   </div>
 </template>
