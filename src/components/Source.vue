@@ -50,8 +50,7 @@ h1 {
   border-radius: 50%;
 }
 
-/* Optionally, you can add hover effects or other styles */
 .source-partnership-button:hover {
-  /* Add your hover styles */
+
 }
 </style>
