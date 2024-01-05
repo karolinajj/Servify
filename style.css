@@ -1,0 +1,56 @@
+.header {
+    text-align: right;
+}
+
+.main {
+    text-align: center;
+}
+
+.source {
+    text-align: center;
+}
+
+.source-partnership-button {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.servings {
+    text-align: center;
+}
+
+.servings-button {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.ingredients {
+    text-align: center;
+}
+
+.ingredients-list {
+    background-color: teal;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+.partnership {
+    text-align: center;
+}
+
+.partnership-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.contact {
+    text-align: center;
+}

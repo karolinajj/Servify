@@ -1,15 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servify</title>
-    <link rel="stylesheet" href="/src/assets/style.css"> <!-- css -->
-    <script type="text/javascript" src="/src/assets/functions.js"></script> <!-- skrypt js -->
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
-  
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servify</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <button>O nas</button>
+    </div>
+
+    <!-- main -->
+    <div class="main"> 
+        <h1>Servify</h1>
+        <h1>Idealna porcja dla Ciebie</h1>
+        <input type="text" id="fLink" placeholder="Co chcesz ugotować?" oninput="showDiv(this.value)" />
+    </div>
+
+    <!-- source -->
+    <div class="source" id="sourceDiv" style="display: none;">
+        <h1>Wybierz stronę</h1>
+        <div class="source-photos">
+            <button type="button" class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
+            <button type="button" class="source-partnership-button" style="background-image: url('./assets/kwestia_smaku.png')"></button>
+            <button type="button" class="source-partnership-button" style="background-image: url('./assets/rozkoszny.jpeg')"></button>
+            <button type="button" class="source-partnership-button" style="background-image: url('./assets/ania_starmach.jpeg')"></button>
+            <button type="button" class="source-partnership-button" style="background-image: url('./assets/chat.webp')"></button>
+        </div>
+    </div>
+
+    <!-- servings -->
+    <div class="servings" id="servingsDiv" style="display: none;">
+        <h1>Wybierz liczbę porcji</h1>
+        <div>
+            <button class="servings-button">1</button>
+            <button class="servings-button">2</button>
+            <button class="servings-button">4</button>
+            <input class="servings-button" type="text" placeholder="Wpisz liczbę porcji"></input>
+        </div>
+    </div>
+
+    <!-- ingredients -->
+    <div class="ingredients" id="ingredientsDiv" style="display: none;">
+        <h1>Składniki: </h1>
+        <!-- div for listing ingredients -->
+        <div class="ingredients-list"></div>
+    </div>
+
+    <!-- partnership -->
+    <div class="partnership">
+        <h1>Współpracujemy z: </h1>
+        <div class="partnership-images">
+            <a href="https://aniagotuje.pl" target="_blank">
+                <img class="partnership-image" src="./assets/ania_gotuje.jpeg" alt="Ania Gotuje" />
+            </a>
+            <a href="https://www.kwestiasmaku.com" target="_blank">
+                <img class="partnership-image" src="./assets/kwestia_smaku.png" alt="Kwestia Smaku" />
+            </a>
+            <a href="https://www.rozkoszny.pl" target="_blank">
+                <img class="partnership-image" src="./assets/rozkoszny.jpeg" alt="Rozkoszny.pl" />
+            </a>
+            <a href="https://aniastarmach.pl" target="_blank">
+                <img class="partnership-image" src="./assets/ania_starmach.jpeg" alt="Ania Starmach" />
+            </a>
+        </div>
+    </div>
+
+    <div class="contact">
+        <h1>Skontaktuj się z nami:</h1>
+        <h2>contact@servify.pl</h2>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>
