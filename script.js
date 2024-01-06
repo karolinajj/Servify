@@ -12,3 +12,9 @@ function showDiv(value) {
         Div3.style.display = "none";
     }
 }
+
+function showDivEnter(event) {
+    if (event.key === "Enter") {
+        showDiv(document.getElementById('fLink').value);
+    }
+}

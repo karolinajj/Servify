@@ -18,7 +18,8 @@
     <div class="main"> 
         <h1>Servify</h1>
         <h1>Idealna porcja dla Ciebie</h1>
-        <input type="text" id="fLink" placeholder="Co chcesz ugotować?" oninput="showDiv(this.value)" />
+        <input type="text" id="fLink" placeholder="Co chcesz ugotować?" onkeypress="showDivEnter(event)">
+        <button onclick="showDiv(document.getElementById('fLink').value)"> Wyszukaj </button>
     </div>
 
     <!-- source -->
