@@ -6,7 +6,8 @@ function showDiv(value) {
         Div1.style.display = "block";
         Div2.style.display = "block";
         Div3.style.display = "block";
-    } else {
+    }
+    else {
         Div1.style.display = "none";
         Div2.style.display = "none";
         Div3.style.display = "none";
@@ -17,4 +18,8 @@ function showDivEnter(event) {
     if (event.key === "Enter") {
         showDiv(document.getElementById('fLink').value);
     }
+    else if (document.getElementById('fLink').value === ""){
+        showDiv("");
+    }
+
 }
