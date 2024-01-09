@@ -21,21 +21,41 @@ function init(recipeName) {
     }
 }
 
+function initEnter(event) {
+    if (event.key === "Enter") {
+        init(document.getElementById('recipeName').value);
+    }
+    else if (document.getElementById('recipeName').value === ""){
+        init("");
+    }
+}
+
 function getRecipeFromSource(recipeName, source) {
     Div2.style.display = "block";
     Div3.style.display = "block"
 
     for (let i=0; i<tempData.length; i++){
-        var div = document.createElement("div");
-        div.setAttribute('class', '.ingredients-list');
-        const newContent = document.createTextNode(tempData[i]);
-        div.appendChild(newContent);
-        Div3.appendChild(div);
+        var button = document.createElement("button");
+        button.setAttribute('class', 'ingredients-list');
+        const newContent = document.createTextNode(tempData[i][0]);
+        button.appendChild(newContent);
+        Div3.appendChild(button);
     }
 }
 
 function calculateServings(servings) {
     Div4.style.display = "block";
-    Div4.textContent = tempData[0] + " x " + servings;
+    for(let i = 0; i < tempData[0].length; i++){
+        let lineDiv = document.createElement("div");
+        lineDiv.textContent = tempData[0][i];
+        Div4.appendChild(lineDiv);
+    }
+    // Div4.textContent = tempData[0] + " x " + servings;
+}
+
+function calculateServingsEnter(event) {
+    if(event.key === "Enter"){
+        calculateServings(document.getElementById('inputServings').value);
+    }
 }
 

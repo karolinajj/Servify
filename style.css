@@ -35,10 +35,18 @@
 }
 
 .ingredients-list {
-    background-color: teal;
-    width: 200px;
-    height: 200px;
-    display: inline-block;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;  /* Wyśrodkowanie wzdłuż osi X */
+    margin-bottom: 10px; /* Odległość między buttons */
+}
+
+.ingredientsCalculated{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .partnership {

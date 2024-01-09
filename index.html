@@ -18,7 +18,9 @@
     <div class="main"> 
         <h1>Servify</h1>
         <h1>Idealna porcja dla Ciebie</h1>
-        <input type="text" id="recipeName" placeholder="Co chcesz ugotować?">
+        <!-- <input type="text" id="recipeName" placeholder="Co chcesz ugotować?">
+        <button onclick="init(document.getElementById('recipeName').value)"> Wyszukaj </button> -->
+        <input type="text" id="recipeName" placeholder="Co chcesz ugotować?" onkeypress="initEnter(event)" oninput="initEnter(event)">
         <button onclick="init(document.getElementById('recipeName').value)"> Wyszukaj </button>
     </div>
 
@@ -36,8 +38,7 @@
 
     <!-- ingredients -->
     <div class="ingredients" id="ingredientsDiv" style="display: none;">
-        <!-- div for listing ingredients -->
-        <div class="ingredients-list"></div>
+        <h1>Wybierz przepis</h1>
     </div>
 
     <!-- servings -->
@@ -47,14 +48,14 @@
             <button class="servings-button" onclick="calculateServings(1)">1</button>
             <button class="servings-button" onclick="calculateServings(2)">2</button>
             <button class="servings-button" onclick="calculateServings(4)">4</button>
-            <input class="servings-button" type="text" placeholder="Wpisz liczbę porcji" onclick="calculateServings(this.value)"></input>
+            <input id="inputServings" class="servings-button" type="text" 
+            placeholder="Wpisz liczbę porcji"
+            onkeypress="calculateServingsEnter(event)"></input>
         </div>
     </div>
 
     <!-- ingredientsCalculated -->
-    <div class="ingredients" id="ingredientsCalculatedDiv" style="display: none;">
-        <!-- div for listing ingredients -->
-        <div class="ingredients-list"></div>
+    <div class="ingredientsCalculated" id="ingredientsCalculatedDiv" style="display: none;">
     </div>
 
 
