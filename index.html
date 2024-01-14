@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servify</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servify</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
+
     <!-- header -->
     <div class="header">
         <button>O nas</button>
@@ -28,7 +30,7 @@
     <div class="source" id="sourceDiv" style="display: none;">
         <h1>Wybierz stronę</h1>
         <div class="source-photos">
-            <button type="button" onclick="getRecipeFromSource(document.getElementById('recipeName').value, 'aniagotuje.pl' )" class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
+            <button type="button" onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'aniagotuje.pl' )" class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
             <button type="button" class="source-partnership-button" style="background-image: url('./assets/kwestia_smaku.png')"></button>
             <button type="button" class="source-partnership-button" style="background-image: url('./assets/rozkoszny.jpeg')"></button>
             <button type="button" class="source-partnership-button" style="background-image: url('./assets/ania_starmach.jpeg')"></button>
@@ -57,8 +59,6 @@
     <!-- ingredientsCalculated -->
     <div class="ingredientsCalculated" id="ingredientsCalculatedDiv" style="display: none;">
     </div>
-
-
 
     <!-- partnership -->
     <div class="partnership">
