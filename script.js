@@ -79,8 +79,8 @@ function calculateServingsEnter(event) {
 async function getDataFromAniaGotuje(recipeName, type){
     if(type == "list") {
         let a = 0;
-        //await $.get('assets/ania_pierogi.html', function (html) {
-            await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
+        await $.get('assets/ania_pierogi.html', function (html) {
+            //await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
             $(html).find('.article-intro').each(function () {
                 //console.log($(this).text());
                 recipeShort[a++] = ($(this).text());
