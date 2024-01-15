@@ -9,7 +9,16 @@ let tempData = [
     ['Pierogi z jagodami', '200 g mąki pszennej np. typ 500','1 szklanka gorącej wody - 250 ml', '2 łyżki oleju roślinnego - 50 ml', 'pół łyżeczki soli']
 ];
 
+let recipeShort = [];
+let recipeUrl = [];
+let recipeFull = [];
+
+
 function init(recipeName) {
+    recipeShort = [];
+    recipeUrl = [];
+    recipeFull = [];
+
     if (recipeName.trim() !== "") {
         Div1.style.display = "block";
     }
@@ -30,14 +39,18 @@ function initEnter(event) {
     }
 }
 
-function getRecipeFromSource(recipeName, source) {
+async function getListOfRecipesFromSource(recipeName, source) {
     Div2.style.display = "block";
     Div3.style.display = "block"
+    let a = 0;
+   if(source.includes("aniagotuje")){
+       await getDataFromAniaGotuje(recipeName, "list");
+   }
 
-    for (let i=0; i<tempData.length; i++){
+    for (let i=0; i<recipeShort.length; i++){
         var button = document.createElement("button");
         button.setAttribute('class', 'ingredients-list');
-        const newContent = document.createTextNode(tempData[i][0]);
+        const newContent = document.createTextNode(recipeShort[i]);
         button.appendChild(newContent);
         Div3.appendChild(button);
     }
@@ -58,4 +71,35 @@ function calculateServingsEnter(event) {
         calculateServings(document.getElementById('inputServings').value);
     }
 }
+
+// ------------------------------------------------------
+// parse HTMLs
+// ------------------------------------------------------
+
+async function getDataFromAniaGotuje(recipeName, type){
+    if(type == "list") {
+        let a = 0;
+        await $.get('assets/ania_pierogi.html', function (html) {
+            //await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
+            $(html).find('.article-intro').each(function () {
+                //console.log($(this).text());
+                recipeShort[a++] = ($(this).text());
+            });
+        });
+        a = 0;
+        await $.get('assets/ania_pierogi.html', function (html) {
+            //await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
+            $(html).find('.article-content').each(function () {
+                //console.log($(this).attr("href"));
+                recipeUrl[a++] = $(this).find('a').attr("href");
+                console.log(recipeUrl[a - 1]);
+            });
+        });
+    } else {
+
+    }
+
+}
+
+
 
