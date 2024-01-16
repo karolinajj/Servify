@@ -40,7 +40,6 @@ function initEnter(event) {
 }
 
 async function getListOfRecipesFromSource(recipeName, source) {
-    Div2.style.display = "block";
     Div3.style.display = "block"
     let a = 0;
    if(source.includes("aniagotuje")){
@@ -50,17 +49,29 @@ async function getListOfRecipesFromSource(recipeName, source) {
     for (let i=0; i<recipeShort.length; i++){
         var button = document.createElement("button");
         button.setAttribute('class', 'ingredients-list');
+        button.setAttribute('id', i);
+        button.addEventListener('click', showServingsButtons, false);
         const newContent = document.createTextNode(recipeShort[i]);
         button.appendChild(newContent);
         Div3.appendChild(button);
     }
 }
 
-function calculateServings(servings) {
+let recipeId = 0;
+function showServingsButtons(evt) {
+    //alert(recipeUrl[evt.currentTarget.id]);
+    recipeId = evt.currentTarget.id;
+    Div2.style.display = "block";
+
+
+}
+
+async function calculateServings(servings) {
     Div4.style.display = "block";
-    for(let i = 0; i < tempData[0].length; i++){
+    await getDataFromAniaGotuje("", "full" )
+    for(let i = 0; i < recipeFull.length; i++){
         let lineDiv = document.createElement("div");
-        lineDiv.textContent = tempData[0][i];
+        lineDiv.textContent = recipeFull[i] + "x" + servings;
         Div4.appendChild(lineDiv);
     }
     // Div4.textContent = tempData[0] + " x " + servings;
@@ -88,7 +99,7 @@ async function getDataFromAniaGotuje(recipeName, type){
         });
         a = 0;
         await $.get('assets/ania_pierogi.html', function (html) {
-            //await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
+        //await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
             $(html).find('.article-content').each(function () {
                 //console.log($(this).attr("href"));
                 recipeUrl[a++] = $(this).find('a').attr("href");
@@ -96,10 +107,14 @@ async function getDataFromAniaGotuje(recipeName, type){
             });
         });
     } else {
-
+        let a = 0;
+        //await $.get(recipeUrl[recipeId], function (html) {
+            await $.get('assets/full_'+recipeId+'.html', function (html) {
+            $(html).find('.recipe-ing-list').each(function () {
+                console.log($(this).text());
+                recipeFull[a++] = ($(this).text());
+            });
+        });
     }
 
 }
-
-
-
