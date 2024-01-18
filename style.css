@@ -25,7 +25,7 @@
 
 .servings-button {
     width: 200px;
-    height: auto;
+    height: 200px;
     border-radius: 50%;
     text-align: center;
 }
@@ -36,7 +36,7 @@
 
 .ingredients-list {
     width: 150px;
-    height: 440px;
+    height: 40px;
     border-radius: 20px;
     display: block;
     margin: 0 auto;  /* Wyśrodkowanie wzdłuż osi X */
