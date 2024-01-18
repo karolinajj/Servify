@@ -40,12 +40,13 @@ function initEnter(event) {
 }
 
 async function getListOfRecipesFromSource(recipeName, source) {
-    Div3.innerHTML = '';
-    Div3.style.display = "block"
     let a = 0;
    if(source.includes("aniagotuje")){
        await getDataFromAniaGotuje(recipeName, "list");
    }
+
+    Div3.innerHTML = '';
+    Div3.style.display = "block"
 
     for (let i=0; i<recipeShort.length; i++){
         var button = document.createElement("button");
