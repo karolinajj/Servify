@@ -41,6 +41,7 @@ function initEnter(event) {
 
 async function getListOfRecipesFromSource(recipeName, source) {
     Div3.style.display = "block"
+    Div3.innerHTML = '';
     let a = 0;
    if(source.includes("aniagotuje")){
        await getDataFromAniaGotuje(recipeName, "list");
