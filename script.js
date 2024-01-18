@@ -68,6 +68,7 @@ function showServingsButtons(evt) {
 
 async function calculateServings(servings) {
     Div4.style.display = "block";
+    $('Div4').empty();
     await getDataFromAniaGotuje("", "full" )
     for(let i = 0; i < recipeFull.length; i++){
         let lineDiv = document.createElement("div");
