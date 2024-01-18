@@ -94,9 +94,10 @@ async function getDataFromAniaGotuje(recipeName, type){
         let a = 0;
         await $.get('assets/ania_pierogi.html', function (html) {
             //await $.get('https://aniagotuje.pl/szukaj?s='+recipeName, function (html) {
-            $(html).find('.article-title').each(function () {
+            $(html).find('.article-content').each(function () {
                 //console.log($(this).text());
-                recipeShort[a++] = ($(this).text());
+                recipeShort[a++] = ($(this).find('h3').text().trim());
+                //recipeShort[a++] = ($(this).text());
             });
         });
         a = 0;
