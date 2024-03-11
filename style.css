@@ -3,28 +3,41 @@ body {
 }
 
 h1 {
-    font-size: 4vh;
+    font-size: 6vh;
 }
 
 h2 {
-    font-size: 2vh;
+    font-size: 3vh;
     font-style: italic;
 }
 
+h3 {
+    font-size: 4vh;
+    margin-bottom: 0;
+}
+
 .header {
+    display: flex;
+    align-items: center;
     text-align: right;
+    justify-content: flex-end;
     background-color: rgb(248, 242, 244);
-    height: 4vh;
+    height: 6vh;
 }
 
 .header-button {
-    margin-right: 2vh;
-    padding-top: 1.2vh;
+    font-size: 2vh;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 10px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .main {
     text-align: center;
-    background-color: rgb(19, 19, 163);
+    background-color: rgb(17, 62, 31);
     color: rgb(248, 242, 244);
     height: 90vh;
     display: flex;
@@ -34,15 +47,25 @@ h2 {
 }
 
 .main-elements {
-    margin-top: -30vh;
+    margin-top: -18vh;
 }
 
 .main-searchbar {
-    font-size: 1.5vh;
+    font-size: 2.5vh;
+    border: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: rgb(248, 242, 244);
 }
 
 .main-button {
-    font-size: 1.5vh;
+    font-size: 2.0vh;
+    font-style: italic;
+    font-weight: bold;
+    background-color: transparent;
+    border-color: rgb(248, 242, 244);
+    border-radius: 10px;
+    color: rgb(248, 242, 244);
 }
 
 
@@ -92,6 +115,18 @@ h2 {
 .partnership {
     text-align: center;
     background-color: rgb(248, 242, 244);
+    height: 90vh;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.partnership-images {
+    padding-top: 15vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .partnership-image {
@@ -99,7 +134,10 @@ h2 {
     height: auto;
     border-radius: 50%;
 }
-
 .contact {
+    color: rgb(248, 242, 244);
+    background-color: rgb(17, 62, 31);
     text-align: center;
+    height: 20vh;
+    padding-top: 0.01vh;
 }
