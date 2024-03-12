@@ -25,41 +25,43 @@
             <button onclick="init(document.getElementById('recipeName').value)"> Wyszukaj </button> -->
             <input class="main-searchbar" type="text" id="recipeName" placeholder="Co chcesz ugotować?" onkeypress="initEnter(event)" oninput="initEnter(event)">
             <button class="main-button" onclick="init(document.getElementById('recipeName').value)"> Wyszukaj </button>
-    
         </div>
-    </div>
-    <!-- source -->
-    <div class="source" id="sourceDiv" style="display: none;">
-        <h1>Wybierz stronę</h1>
-        <div class="source-photos">
-            <button type="button" onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'aniagotuje.pl' )" class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
-            <button type="button" class="source-partnership-button" style="background-image: url('./assets/kwestia_smaku.png')"></button>
-            <button type="button" class="source-partnership-button" style="background-image: url('./assets/rozkoszny.jpeg')"></button>
-            <button type="button" class="source-partnership-button" style="background-image: url('./assets/ania_starmach.jpeg')"></button>
+
+        <!-- ingredients -->
+        <div class="ingredients" id="recipesListDiv" style="display: none;">
         </div>
+
+        <!-- servings -->
+        <div class="servings" id="calculateDiv" style="display: none;">
+            <h1>Wybierz liczbę porcji:</h1>
+            <div>
+                <button class="servings-button" onclick="calculateServings(1)">1</button>
+                <button class="servings-button" onclick="calculateServings(2)">2</button>
+                <button class="servings-button" onclick="calculateServings(4)">4</button>
+                <input id="inputServings" class="servings-button" type="text" 
+                placeholder="Wpisz liczbę porcji"
+                onkeypress="calculateServingsEnter(event)"></input>
+            </div>
+        </div>
+
+        <!-- ingredientsCalculated -->
+        <div class="ingredientsCalculated" id="ingredientsCalculatedDiv" style="display: none;">
+        </div>
+        
+        <!-- source -->
+        <div class="source" id="sourceDiv" style="display: none;">
+            <div class="source-photos">
+                <button type="button" onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'aniagotuje.pl' )" class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
+                <button type="button" class="source-partnership-button" style="background-image: url('./assets/kwestia_smaku.png')"></button>
+                <button type="button" onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'rozkoszny.pl' )" class="source-partnership-button" style="background-image: url('./assets/rozkoszny.jpeg')"></button>
+                <button type="button" class="source-partnership-button" style="background-image: url('./assets/ania_starmach.jpeg')"></button>
+            </div>
+        </div>
+        
     </div>
 
-    <!-- ingredients -->
-    <div class="ingredients" id="ingredientsDiv" style="display: none;">
-        <h1>Wybierz przepis</h1>
-    </div>
 
-    <!-- servings -->
-    <div class="servings" id="servingsDiv" style="display: none;">
-        <h1>Wybierz liczbę porcji</h1>
-        <div>
-            <button class="servings-button" onclick="calculateServings(1)">1</button>
-            <button class="servings-button" onclick="calculateServings(2)">2</button>
-            <button class="servings-button" onclick="calculateServings(4)">4</button>
-            <input id="inputServings" class="servings-button" type="text" 
-            placeholder="Wpisz liczbę porcji"
-            onkeypress="calculateServingsEnter(event)"></input>
-        </div>
-    </div>
 
-    <!-- ingredientsCalculated -->
-    <div class="ingredientsCalculated" id="ingredientsCalculatedDiv" style="display: none;">
-    </div>
 
     <!-- partnership -->
     <div class="partnership">
