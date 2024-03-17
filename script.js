@@ -1,7 +1,10 @@
 var Div1 = document.getElementById("sourceDiv");
-var Div2 = document.getElementById("recipesListDiv");
+var Div2 = document.getElementById("sourceRecipesListDiv");
 var Div3 = document.getElementById("calculateDiv");
 var Div4 = document.getElementById("ingredientsCalculatedDiv");
+var Div5 = document.getElementById("sourceRecipeDiv");
+var Div7 = document.getElementById("ingredientCalculatedDiv");
+
 
 let recipeShort = [];
 let recipeUrl = [];
@@ -20,8 +23,10 @@ function init(recipeName) {
     Div4.style.display = "none";
 
     if (recipeName.trim() !== "") {
-        Div1.style.display = "block";
+        Div1.style.display = "flex";
+        Div1.scrollIntoView({ behavior: 'smooth' }); 
     }
+
 }
 
 function initEnter(event) {
@@ -38,12 +43,14 @@ async function getListOfRecipesFromSource(recipeName, source) {
     sourceName = source;
     Div1.style.display = "none";
 
-    Div2.innerHTML = '';
-    Div2.style.display = "block"
+    //Div2.innerHTML = '';
+    Div2.style.display = "flex"
+    Div5.style.display = "block"
 
     if (recipeShort.length == 0) {
-        const someText = document.createTextNode("...szukam przepisów");
-        Div2.appendChild(someText);
+        heading = document.createElement('h3');
+        heading.textContent = 'Szukam przepisu...';
+        Div5.appendChild(heading);
     }
 
    if(sourceName.includes("aniagotuje")){
@@ -52,19 +59,27 @@ async function getListOfRecipesFromSource(recipeName, source) {
         await getDataFromRozkoszny(recipeName, "list");
     }
     
-    Div2.innerHTML = '';
+    Div5.innerHTML = '';
 
     if (recipeShort.length == 0) {
-        Div2.innerHTML = 'ups...brak przepisu';
+        heading = document.createElement('h3');
+        heading.textContent = 'Ups... Brak przepisu :(';
+        Div5.appendChild(heading);
+        return;
     }
+
+    var heading = document.createElement('h3');
+    heading.textContent = 'Wybierz przepis:';
+    Div5.appendChild(heading);
+
     for (let i=0; i<recipeShort.length; i++){
         var button = document.createElement("button");
-        button.setAttribute('class', 'ingredients-list');
+        button.setAttribute('class', 'sourceRecipe-button');
         button.setAttribute('id', i);
         button.addEventListener('click', calculateRecipe, false);
         const newContent = document.createTextNode(recipeShort[i]);
         button.appendChild(newContent);
-        Div2.appendChild(button);
+        Div5.appendChild(button);
     }
 }
 
@@ -72,7 +87,7 @@ async function getListOfRecipesFromSource(recipeName, source) {
 async function calculateRecipe(evt) {
     //alert(recipeUrl[evt.currentTarget.id]);
     Div1.style.display = "none"
-    Div2.innerHTML = ' ...pobieram przepis';
+    Div5.innerHTML = ' ...pobieram przepis';
 
     recipeId = evt.currentTarget.id;
     if(sourceName.includes("aniagotuje")){
@@ -80,20 +95,22 @@ async function calculateRecipe(evt) {
      } else if(sourceName.includes("rozkoszny")){
          await getDataFromRozkoszny(recipeName, "full");
      }
-    Div2.innerHTML = recipeShort[recipeId];
-    Div3.style.display = "block";
+    //Div2.innerHTML = recipeShort[recipeId];
+    Div2.style.display = "none"
+    Div3.style.display = "flex";
 }
 
 async function calculateServings(servings) {
     Div2.style.display = "none";
     Div3.style.display = "none"
-    Div4.innerHTML = '';
-    Div4.style.display = "block";
+    //Div4.innerHTML = ''; Zmiana
+    Div4.style.display = "flex";
+    Div7.style.display = "block";
 
     for(let i = 0; i < recipeFull.length; i++){
         let lineDiv = document.createElement("div");
         lineDiv.textContent = recipeFull[i] + "x" + servings;
-        Div4.appendChild(lineDiv);
+        Div7.appendChild(lineDiv);
     }
     // Div4.textContent = tempData[0] + " x " + servings;
 }

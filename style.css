@@ -13,7 +13,8 @@ h2 {
 
 h3 {
     font-size: 4vh;
-    margin-bottom: 0;
+    margin-bottom: 3vh;
+    text-align: center;
 }
 
 .header {
@@ -70,46 +71,111 @@ h3 {
 
 
 .source {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(248, 242, 244);
+    text-align: center;
+}
+
+.source-elements {
     text-align: center;
 }
 
 .source-partnership-button {
-    width: 200px;
-    height: 200px;
+    margin-top: 6vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+    border-style: solid;
+    border-color:rgb(236, 229, 229)
 }
 
 .servings {
+    height: 100vh;
+    background-color: rgb(248, 242, 244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.servings-elements {
     text-align: center;
 }
 
 .servings-button {
-    width: 200px;
-    height: 200px;
+    margin-top: 6vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
     text-align: center;
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+    font-size: 5vh;
+    font-weight: bold;
+    font-style: italic;
+
+    border-style: solid;
+    background-color: rgb(236, 229, 229);
+    border-color: rgb(236, 229, 229);
+    color: rgb(42, 41, 41);
+
 }
 
-.ingredients {
-    text-align: center;
+.sourceRecipes {
+    min-height: 100vh;
+    background-color: rgb(248, 242, 244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-.ingredients-list {
-    width: 150px;
-    height: 40px;
+.sourceRecipe-button {
+    width: 80vh;
+    min-height: 6vh;
     border-radius: 20px;
     display: block;
-    margin: 0 auto;  /* Wyśrodkowanie wzdłuż osi X */
-    margin-bottom: 10px; /* Odległość między buttons */
+    margin: 1.5vh;
+    font-family: 'Open Sans', sans-serif;
+
+    font-size: 2.0vh;
+    font-style: italic;
+    font-weight: bold;
+    background-color: rgb(236, 229, 229);
+    border-color: rgb(236, 229, 229);
+    border-radius: 10px;
+    color: rgb(42, 41, 41);
+    border-style: solid;
+    /* margin: 10px; Odległość między buttons */
 }
 
 .ingredientsCalculated{
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    height: 100vh;
+    background-color: rgb(248, 242, 244);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ingredientCalculated{
+
+    border-style: solid;
+    background-color: rgb(236, 229, 229);
+    border-color: rgb(236, 229, 229);
+    color: rgb(42, 41, 41);
+
+    min-height: 40vh;
+    width: 80vh;
+    border-radius: 2vh;
 }
 
 .partnership {

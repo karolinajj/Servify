@@ -18,49 +18,61 @@
 
     <!-- main -->
     <div class="main">
-        <div class="main-elements"> 
+        <div class="main-elements">
             <h1>Servify</h1>
             <h2>Idealna porcja dla Ciebie</h2>
             <!-- <input type="text" id="recipeName" placeholder="Co chcesz ugotować?">
             <button onclick="init(document.getElementById('recipeName').value)"> Wyszukaj </button> -->
-            <input class="main-searchbar" type="text" id="recipeName" placeholder="Co chcesz ugotować?" onkeypress="initEnter(event)" oninput="initEnter(event)">
+            <input class="main-searchbar" type="text" id="recipeName" placeholder="Co chcesz ugotować?"
+                onkeypress="initEnter(event)" oninput="initEnter(event)">
             <button class="main-button" onclick="init(document.getElementById('recipeName').value)"> Wyszukaj </button>
         </div>
+    </div>
 
-        <!-- ingredients -->
-        <div class="ingredients" id="recipesListDiv" style="display: none;">
+    <!-- source -->
+    <div class="source" id="sourceDiv" style="display: none;">
+        <div class="source-elements">
+            <h3>Wybierz źródło:</h3>
+            <div class="source-photos">
+                <button type="button"
+                    onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'aniagotuje.pl' )"
+                    class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
+                <button type="button" class="source-partnership-button"
+                    style="background-image: url('./assets/kwestia_smaku.png')"></button>
+                <button type="button"
+                    onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'rozkoszny.pl' )"
+                    class="source-partnership-button" style="background-image: url('./assets/rozkoszny.jpeg')"></button>
+                <button type="button" class="source-partnership-button"
+                    style="background-image: url('./assets/ania_starmach.jpeg')"></button>
+            </div>
         </div>
+    </div>
 
-        <!-- servings -->
-        <div class="servings" id="calculateDiv" style="display: none;">
-            <h1>Wybierz liczbę porcji:</h1>
+    <!-- source recipes -->
+    <div class="sourceRecipes" id="sourceRecipesListDiv" style="display: none;">
+        <div class="sourceRecipes-elements" id="sourceRecipeDiv">
+        </div>
+    </div>
+
+    <!-- servings -->
+    <div class="servings" id="calculateDiv" style="display: none;">
+        <div class="servings-elements">
+            <h3>Wybierz liczbę porcji:</h3>
             <div>
                 <button class="servings-button" onclick="calculateServings(1)">1</button>
                 <button class="servings-button" onclick="calculateServings(2)">2</button>
                 <button class="servings-button" onclick="calculateServings(4)">4</button>
-                <input id="inputServings" class="servings-button" type="text" 
-                placeholder="Wpisz liczbę porcji"
-                onkeypress="calculateServingsEnter(event)"></input>
+                <input id="inputServings" class="servings-button" type="text" placeholder="Wpisz liczbę porcji"
+                    onkeypress="calculateServingsEnter(event)"></input>
             </div>
         </div>
-
-        <!-- ingredientsCalculated -->
-        <div class="ingredientsCalculated" id="ingredientsCalculatedDiv" style="display: none;">
-        </div>
-        
-        <!-- source -->
-        <div class="source" id="sourceDiv" style="display: none;">
-            <div class="source-photos">
-                <button type="button" onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'aniagotuje.pl' )" class="source-partnership-button" style="background-image: url('./assets/ania_gotuje.jpeg')"></button>
-                <button type="button" class="source-partnership-button" style="background-image: url('./assets/kwestia_smaku.png')"></button>
-                <button type="button" onclick="getListOfRecipesFromSource(document.getElementById('recipeName').value, 'rozkoszny.pl' )" class="source-partnership-button" style="background-image: url('./assets/rozkoszny.jpeg')"></button>
-                <button type="button" class="source-partnership-button" style="background-image: url('./assets/ania_starmach.jpeg')"></button>
-            </div>
-        </div>
-        
     </div>
 
-
+    <!-- ingredientsCalculated -->
+    <div class="ingredientsCalculated" id="ingredientsCalculatedDiv" style="display: none;">
+        <div class="ingredientCalculated" id="ingredientCalculatedDiv">
+        </div>
+    </div>
 
 
     <!-- partnership -->
@@ -84,7 +96,7 @@
 
     <div class="contact">
         <h3>Skontaktuj się z nami:</h2>
-        <h2>contact@servify.pl</h2>
+            <h2>contact@servify.pl</h2>
     </div>
 
     <script src="script.js"></script>
