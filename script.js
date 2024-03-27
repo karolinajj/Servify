@@ -87,7 +87,10 @@ async function getListOfRecipesFromSource(recipeName, source) {
 async function calculateRecipe(evt) {
     //alert(recipeUrl[evt.currentTarget.id]);
     Div1.style.display = "none"
-    Div5.innerHTML = ' ...pobieram przepis';
+    heading = document.createElement('h3');
+    heading.textContent = '...pobieram przepis';
+    Div5.innerHTML = '';
+    Div5.appendChild(heading);
 
     recipeId = evt.currentTarget.id;
     if(sourceName.includes("aniagotuje")){
