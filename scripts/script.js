@@ -1,29 +1,28 @@
-var Div1 = document.getElementById("sourceDiv");
-var Div2 = document.getElementById("sourceRecipesListDiv");
-var Div3 = document.getElementById("calculateDiv");
-var Div4 = document.getElementById("ingredientsCalculatedDiv");
-var Div5 = document.getElementById("sourceRecipeDiv");
-var Div7 = document.getElementById("ingredientCalculatedDiv");
+var sourceDiv = document.getElementById("sourceDiv");
+var sourceRecipesListDiv = document.getElementById("sourceRecipesListDiv");
+var sourceRecipeDiv = document.getElementById("sourceRecipeDiv");
+var servingsDiv = document.getElementById("servingsDiv");
+var ingredientsCalculatedDiv = document.getElementById("ingredientsCalculatedDiv");
+var ingredientCalculatedDiv = document.getElementById("ingredientCalculatedDiv");
 
 let recipeShort = [];
 let recipeUrl = [];
 let recipeFull = [];
 let sourceName = "";
 let recipeId = 0;
-
 function init(recipeName) {
     sourceName = "";
     recipeShort = [];
     recipeUrl = [];
     recipeFull = [];
-    Div1.style.display = "none";
-    Div2.style.display = "none";
-    Div3.style.display = "none";
-    Div4.style.display = "none";
+    sourceDiv.style.display = "none";
+    sourceRecipesListDiv.style.display = "none";
+    servingsDiv.style.display = "none";
+    ingredientsCalculatedDiv.style.display = "none";
 
     if (recipeName.trim() !== "") {
-        Div1.style.display = "flex";
-        Div1.scrollIntoView({ behavior: 'smooth' }); 
+        sourceDiv.style.display = "flex";
+        sourceDiv.scrollIntoView({ behavior: 'smooth' }); 
     }
 
 }
@@ -40,16 +39,16 @@ function initEnter(event) {
 async function getListOfRecipesFromSource(recipeName, source) {
     let a = 0;
     sourceName = source;
-    Div1.style.display = "none";
+    sourceDiv.style.display = "none";
 
-    //Div2.innerHTML = '';
-    Div2.style.display = "flex"
-    Div5.style.display = "block"
+    sourceRecipeDiv.innerHTML = '';
+    sourceRecipesListDiv.style.display = "flex"
+    sourceRecipeDiv.style.display = "block"
 
     if (recipeShort.length == 0) {
         heading = document.createElement('h3');
         heading.textContent = 'Szukam przepisu...';
-        Div5.appendChild(heading);
+        sourceRecipeDiv.appendChild(heading);
     }
 
    if(sourceName.includes("aniagotuje")){
@@ -58,18 +57,18 @@ async function getListOfRecipesFromSource(recipeName, source) {
         await getDataFromRozkoszny(recipeName, "list");
     }
     
-    Div5.innerHTML = '';
+    sourceRecipeDiv.innerHTML = '';
 
     if (recipeShort.length == 0) {
         heading = document.createElement('h3');
         heading.textContent = 'Ups... Brak przepisu :(';
-        Div5.appendChild(heading);
+        sourceRecipeDiv.appendChild(heading);
         return;
     }
 
     var heading = document.createElement('h3');
     heading.textContent = 'Wybierz przepis:';
-    Div5.appendChild(heading);
+    sourceRecipeDiv.appendChild(heading);
 
     for (let i=0; i<recipeShort.length; i++){
         var button = document.createElement("button");
@@ -78,18 +77,18 @@ async function getListOfRecipesFromSource(recipeName, source) {
         button.addEventListener('click', calculateRecipe, false);
         const newContent = document.createTextNode(recipeShort[i]);
         button.appendChild(newContent);
-        Div5.appendChild(button);
+        sourceRecipeDiv.appendChild(button);
     }
 }
 
 
 async function calculateRecipe(evt) {
     //alert(recipeUrl[evt.currentTarget.id]);
-    Div1.style.display = "none"
+    sourceDiv.style.display = "none"
     heading = document.createElement('h3');
     heading.textContent = '...pobieram przepis';
-    Div5.innerHTML = '';
-    Div5.appendChild(heading);
+    sourceRecipeDiv.innerHTML = '';
+    sourceRecipeDiv.appendChild(heading);
 
     recipeId = evt.currentTarget.id;
     if(sourceName.includes("aniagotuje")){
@@ -97,24 +96,24 @@ async function calculateRecipe(evt) {
      } else if(sourceName.includes("rozkoszny")){
          await getDataFromRozkoszny(recipeName, "full");
      }
-    //Div2.innerHTML = recipeShort[recipeId];
-    Div2.style.display = "none"
-    Div3.style.display = "flex";
+    //sourceRecipesListDiv.innerHTML = recipeShort[recipeId];
+    sourceRecipesListDiv.style.display = "none"
+    servingsDiv.style.display = "flex";
 }
 
 async function calculateServings(servings) {
-    Div2.style.display = "none";
-    Div3.style.display = "none"
-    //Div4.innerHTML = ''; Zmiana
-    Div4.style.display = "flex";
-    Div7.style.display = "block";
+    sourceRecipesListDiv.style.display = "none";
+    servingsDiv.style.display = "none"
+    //ingredientsCalculatedDiv.innerHTML = ''; Zmiana
+    ingredientsCalculatedDiv.style.display = "flex";
+    ingredientCalculatedDiv.style.display = "block";
 
     for(let i = 0; i < recipeFull.length; i++){
         let lineDiv = document.createElement("div");
         lineDiv.textContent = recipeFull[i] + "x" + servings;
-        Div7.appendChild(lineDiv);
+        ingredientCalculatedDiv.appendChild(lineDiv);
     }
-    // Div4.textContent = tempData[0] + " x " + servings;
+    // ingredientsCalculatedDiv.textContent = tempData[0] + " x " + servings;
 }
 
 function calculateServingsEnter(event) {
