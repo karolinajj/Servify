@@ -57,6 +57,8 @@ async function getListOfRecipesFromSource(recipeName, source) {
         await getDataFromRozkoszny(recipeName, "list");
     } else if(sourceName.includes("kwestia")){
         await getDataFromKwestia(recipeName, "list");
+    } else if(sourceName.includes("aniastarmach")){
+        await getDataFromAniaStarmach(recipeName, "list");
     }
     
     sourceRecipeDiv.innerHTML = '';
@@ -99,7 +101,9 @@ async function calculateRecipe(evt) {
          await getDataFromRozkoszny(recipeName, "full");
      } else if(sourceName.includes("kwestia")){
         await getDataFromKwestia(recipeName, "full");
-    } 
+    } else if(sourceName.includes("aniastarmach")){
+        await getDataFromAniaStarmach(recipeName, "full");
+    }
     //sourceRecipesListDiv.innerHTML = recipeShort[recipeId];
     sourceRecipesListDiv.style.display = "none"
     servingsDiv.style.display = "flex";
