@@ -55,6 +55,10 @@ async function getListOfRecipesFromSource(recipeName, source) {
        await getDataFromAniaGotuje(recipeName, "list");
     } else if(sourceName.includes("rozkoszny")){
         await getDataFromRozkoszny(recipeName, "list");
+    } else if(sourceName.includes("kwestia")){
+        await getDataFromKwestia(recipeName, "list");
+    } else if(sourceName.includes("aniastarmach")){
+        await getDataFromAniaStarmach(recipeName, "list");
     }
     
     sourceRecipeDiv.innerHTML = '';
@@ -95,7 +99,11 @@ async function calculateRecipe(evt) {
         await getDataFromAniaGotuje(recipeName, "full");
      } else if(sourceName.includes("rozkoszny")){
          await getDataFromRozkoszny(recipeName, "full");
-     }
+     } else if(sourceName.includes("kwestia")){
+        await getDataFromKwestia(recipeName, "full");
+    } else if(sourceName.includes("aniastarmach")){
+        await getDataFromAniaStarmach(recipeName, "full");
+    }
     //sourceRecipesListDiv.innerHTML = recipeShort[recipeId];
     sourceRecipesListDiv.style.display = "none"
     servingsDiv.style.display = "flex";
@@ -110,7 +118,7 @@ async function calculateServings(servings) {
 
     for(let i = 0; i < recipeFull.length; i++){
         let lineDiv = document.createElement("div");
-        lineDiv.textContent = recipeFull[i] + "x" + servings;
+        lineDiv.textContent = recipeFull[i] + " x " + servings;
         ingredientCalculatedDiv.appendChild(lineDiv);
     }
     // ingredientsCalculatedDiv.textContent = tempData[0] + " x " + servings;
