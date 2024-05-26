@@ -80,7 +80,7 @@ async function getListOfRecipesFromSource(recipeName, source) {
         var button = document.createElement("button");
         button.setAttribute('class', 'sourceRecipe-button');
         button.setAttribute('id', i);
-        button.addEventListener('click', calculateRecipe, false);
+        button.addEventListener('click', getRecipeFromSource, false);
         const newContent = document.createTextNode(recipeShort[i]);
         button.appendChild(newContent);
         sourceRecipeDiv.appendChild(button);
@@ -88,8 +88,7 @@ async function getListOfRecipesFromSource(recipeName, source) {
 }
 
 
-async function calculateRecipe(evt) {
-    //alert(recipeUrl[evt.currentTarget.id]);
+async function getRecipeFromSource(evt) {
     sourceDiv.style.display = "none"
     heading = document.createElement('h3');
     heading.textContent = '...pobieram przepis';
@@ -118,16 +117,19 @@ async function calculateServings(servings) {
     ingredientsCalculatedDiv.style.display = "flex";
     ingredientCalculatedDiv.style.display = "block";
 
-    let servingsOrginal = document.createElement("div");
-    servingsOrginal.textContent = "Oryginalna liczba porcji: " + recipeServingsOrginal;
-    ingredientCalculatedDiv.appendChild(servingsOrginal);
+    // let servingsOrginal = document.createElement("div");
+    // servingsOrginal.textContent = "Oryginalna liczba porcji: " + recipeServingsOrginal;
+    // ingredientCalculatedDiv.appendChild(servingsOrginal);
+    ingredientsCalculatedDiv.textContent = "Przeliczam przepis z Gemini AI ...";
+    let finalRecipe = await getResponseFromGeminiAI(recipeServingsOrginal, servings, recipeFull,toString());
+    ingredientsCalculatedDiv.textContent = finalRecipe;
 
-    for(let i = 0; i < recipeFull.length; i++){
-        let lineDiv = document.createElement("div");
-        lineDiv.textContent = recipeFull[i] + " x " + servings;
-        ingredientCalculatedDiv.appendChild(lineDiv);
-    }
-    // ingredientsCalculatedDiv.textContent = tempData[0] + " x " + servings;
+    // for(let i = 0; i < recipeFull.length; i++){
+    //     let lineDiv = document.createElement("div");
+    //     lineDiv.textContent = recipeFull[i] + " x " + servings;
+    //     ingredientCalculatedDiv.appendChild(lineDiv);
+    // }
+    // // ingredientsCalculatedDiv.textContent = tempData[0] + " x " + servings;
 }
 
 function calculateServingsEnter(event) {

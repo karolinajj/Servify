@@ -11,7 +11,7 @@ async function getDataFromKwestia(recipeName, type){
         });
     } else {
         let a = 0;
-        console.log(recipeUrl[recipeId]);
+        //console.log(recipeUrl[recipeId]);
         getServingsFromKwestia();
         await $.get("https://cors-anywhere.herokuapp.com/" + recipeUrl[recipeId], function (html) {
             $(html).find('.field-name-field-skladniki').find('li').each(function () {

@@ -7,6 +7,7 @@
     <title>Servify</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -101,11 +102,35 @@
             <h2>contact@servify.pl</h2>
     </div>
 
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+      <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+  
+        // Fetch your API_KEY
+        const API_KEY = "";
+  
+        // Access your API key (see "Set up your API key" above)
+        window.genAI = new GoogleGenerativeAI(API_KEY);
+  
+  
+        // The Gemini 1.5 models are versatile and work with most use cases
+        window.model = genAI.getGenerativeModel({ model: "gemini-1.0-pro"});
+  
+      </script>
+
     <script src=".\scripts\script.js"></script>
+    <script src=".\scripts\gemini_ai.js"></script>
     <script src=".\scripts\rozkoszny.js"></script>
     <script src=".\scripts\aniagotuje.js"></script>
     <script src=".\scripts\kwestia.js"></script>
     <script src=".\scripts\aniastarmach.js"></script>
+    
 </body>
 
 </html>
