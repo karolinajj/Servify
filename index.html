@@ -112,8 +112,11 @@
       <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
   
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const api_key = urlParams.get('apiKey')
         // Fetch your API_KEY
-        const API_KEY = "";
+        const API_KEY = api_key;
   
         // Access your API key (see "Set up your API key" above)
         window.genAI = new GoogleGenerativeAI(API_KEY);

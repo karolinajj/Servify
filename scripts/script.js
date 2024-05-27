@@ -116,14 +116,18 @@ async function calculateServings(servings) {
     //ingredientsCalculatedDiv.innerHTML = ''; Zmiana
     ingredientsCalculatedDiv.style.display = "flex";
     ingredientCalculatedDiv.style.display = "block";
-
+    
     // let servingsOrginal = document.createElement("div");
     // servingsOrginal.textContent = "Oryginalna liczba porcji: " + recipeServingsOrginal;
     // ingredientCalculatedDiv.appendChild(servingsOrginal);
-    ingredientsCalculatedDiv.textContent = "Przeliczam przepis z Gemini AI ...";
-    let finalRecipe = await getResponseFromGeminiAI(recipeServingsOrginal, servings, recipeFull,toString());
-    ingredientsCalculatedDiv.textContent = finalRecipe;
-
+    ingredientCalculatedDiv.textContent = "Przeliczam przepis z Gemini AI ...";
+    try{
+        ingredientCalculatedDiv.textContent = await getResponseFromGeminiAI(recipeServingsOrginal, servings, recipeFull,toString());
+    }catch(error){
+        ingredientCalculatedDiv.textContent = "Problem z połączeniem z Gemini AI"; 
+    }
+    
+   
     // for(let i = 0; i < recipeFull.length; i++){
     //     let lineDiv = document.createElement("div");
     //     lineDiv.textContent = recipeFull[i] + " x " + servings;
