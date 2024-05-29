@@ -1,31 +1,30 @@
-async function getDataFromAniaStarmach(recipeName, type){
+async function getDataFromKwestia(recipeName, type){
     if(type == "list") {
         let a = 0;
-        await $.get('https://cors-anywhere.herokuapp.com/https://aniastarmach.pl/szukaj/typ,przepisy/s,'+recipeName, function (html) {
-            $(html).find(".recipe-title").each(function () {
+        await $.get('https://cors-anywhere.herokuapp.com/https://www.kwestiasmaku.com/szukaj?search_api_views_fulltext='+recipeName, function (html) {
+            $(html).find(".field-name-title").each(function () {
                 //console.log($(this).text());
                 recipeShort[a] = ($(this).text().trim());
                 //console.log($(this).find('a').attr("href"));
-                recipeUrl[a++] = $(this).find('a').attr("href");
+                recipeUrl[a++] = "https://www.kwestiasmaku.com/" + $(this).find('a').attr("href");
             });
         });
     } else {
         let a = 0;
         //console.log(recipeUrl[recipeId]);
-        getServingsFromAniaStarmach();
+        getServingsFromKwestia();
         await $.get("https://cors-anywhere.herokuapp.com/" + recipeUrl[recipeId], function (html) {
-            $(html).find('.recipe-what-to-buy').find('li').each(function () {
+            $(html).find('.field-name-field-skladniki').find('li').each(function () {
                    //console.log($(this).text());
                     recipeFull[a++] = ($(this).text());
             });
         });
     }
-
 }
 
-async function getServingsFromAniaStarmach()
+async function getServingsFromKwestia()
 {
     await $.get("https://cors-anywhere.herokuapp.com/" + recipeUrl[recipeId], function (html) {
-        recipeServingsOrginal = $(html).find('.recipe-icon.icon-portions span').first().text();
+        recipeServingsOrginal = $(html).find('.field-name-field-ilosc-porcji').text();
     });
 }
