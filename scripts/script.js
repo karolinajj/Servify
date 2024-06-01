@@ -93,7 +93,7 @@ async function getListOfRecipesFromSource(recipeName, source) {
 async function getRecipeFromSource(evt) {
     sourceDiv.style.display = "none"
     heading = document.createElement('h3');
-    heading.textContent = '...pobieram przepis';
+    heading.textContent = 'Pobieram przepis...';
     sourceRecipeDiv.innerHTML = '';
     sourceRecipeDiv.appendChild(heading);
 
@@ -134,6 +134,9 @@ async function calculateServings(servings) {
                 tmp = true;
                 lineDiv = document.createElement('h2');
             }
+            else if(resultTab[i].toLowerCase().includes("wykonanie")){
+                lineDiv = document.createElement('h2');
+            }
             else
             {
                 lineDiv = document.createElement("div");
@@ -143,7 +146,7 @@ async function calculateServings(servings) {
             ingredientCalculatedDiv.appendChild(lineDiv);
         }
     }catch(error){
-        ingredientCalculatedDiv.innerHTML='';
+        ingredientCalculatedDiv.textContent = "";
         let heading = document.createElement('h3');
         heading.textContent = 'Ups... Brak połączenia z Gemini AI :(';
         ingredientCalculatedDiv.appendChild(heading);
