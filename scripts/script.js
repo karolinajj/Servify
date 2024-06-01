@@ -143,6 +143,7 @@ async function calculateServings(servings) {
             ingredientCalculatedDiv.appendChild(lineDiv);
         }
     }catch(error){
+        ingredientCalculatedDiv.innerHTML='';
         let heading = document.createElement('h3');
         heading.textContent = 'Ups... Brak połączenia z Gemini AI :(';
         ingredientCalculatedDiv.appendChild(heading);
