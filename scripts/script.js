@@ -144,7 +144,7 @@ async function calculateServings(servings) {
         }
     }catch(error){
         let heading = document.createElement('h3');
-        heading.textContent = 'Przeliczam przepis z Gemini AI ...';
+        heading.textContent = 'Ups... Brak połączenia z Gemini AI :(';
         ingredientCalculatedDiv.appendChild(heading);
     }
 }

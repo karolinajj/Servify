@@ -1,6 +1,6 @@
 function filter(recipeName, text){
-   //return text.includes(recipeName);
-   return true;
+    return text.toLowerCase().includes(recipeName.toLowerCase());
+   //return true;
 }
 
 async function getDataFromRozkoszny(recipeName, type){
@@ -19,18 +19,30 @@ async function getDataFromRozkoszny(recipeName, type){
         let a = 0;
         //console.log(recipeUrl[recipeId]);
         getServingsFromRozkoszny();
+
         await $.get("https://cors-anywhere.herokuapp.com/" + recipeUrl[recipeId], function (html) {
-            $(html).find('.box yellow-box').find('br').each(function () {
-                   //console.log($(this).text());
-                    recipeFull[a++] = ($(this).text());
-            });
+            let ingredientsBox = $(html).find('.box.yellow-box');
+
+            let ingredientsText = ingredientsBox.html().replace(/<br\s*\/?>/gi, "\n");
+            let ingredients = ingredientsText.split("\n");
+            
+            let a = 0;
+            for (let i = 0; i < ingredients.length; i++) {
+                let ingredient = $.trim(ingredients[i]);
+                if (ingredient.length > 0) {
+                    recipeFull[a++] = ingredient;
+                    console.log(ingredient);
+                }
+            }
         });
+
     }
 }
 
 async function getServingsFromRozkoszny()
 {
     await $.get("https://cors-anywhere.herokuapp.com/" + recipeUrl[recipeId], function (html) {
-        recipeServingsOrginal = $(html).find('.box yellow-box').first().text();
+        console.log($(this).text());    
+        recipeServingsOrginal = $(html).find('.box.yellow-box').html().replace(/<br\s*\/?>/gi, "\n").split("\n")[0];
     });
 }
